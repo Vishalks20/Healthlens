@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HealthLens · Health Report Analyzer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-in">
+    <div class="brand"><span class="logo">♥</span> HealthLens</div>
+    <h1>Understand your health report in plain language</h1>
+    <p>Add only the tests you have. Get instant checks, a machine-learning screening score, and a clear explanation from Claude.</p>
+    <ul class="pills">
+      <li>✓ Every test is optional</li><li>✓ Private, runs on your computer</li><li>✓ Never prescribes medicines</li>
+    </ul>
+  </div>
+  <svg class="ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 40H180l14-4 10 4h40l12-30 18 62 16-52 10 20h90l14-4 10 4h60l12-30 18 62 16-52 10 20h110l14-4 10 4h60l12-30 18 62 16-52 10 20h90l14-4 10 4h40l12-30 18 62 16-52 10 20H1200"/>
+  </svg>
+</header>
+
+<main class="wrap">
+  <section class="step">
+    <div class="step-head">
+      <h2><span class="n">1</span>What tests do you have?</h2>
+      <button class="link" id="sample" type="button">✨ Load a sample patient</button>
+    </div>
+    <p class="lead">Tap any that apply. You can skip everything else.</p>
+    <div id="picker"></div>
+  </section>
+
+  <section class="step" id="entry" hidden>
+    <h2><span class="n">2</span>Enter your values</h2>
+    <div id="cards"></div>
+    <div class="actions">
+      <button class="go" id="go">Analyze my report</button>
+      <button class="ghost" id="reset" type="button">Start over</button>
+    </div>
+    <p class="err" id="err" role="alert"></p>
+  </section>
+
+  <section class="step" id="results" hidden>
+    <h2><span class="n">3</span>Your results</h2>
+    <div id="banner"></div>
+    <div id="alerts"></div>
+    <div id="flags"></div>
+    <div id="risks"></div>
+    <div class="ai-box">
+      <div class="ai-head"><span class="ai-badge">AI</span><h3>Claude’s explanation</h3></div>
+      <div id="ai" class="ai"></div>
+    </div>
+    <button class="ghost" onclick="window.print()">🖨 Save / print report</button>
+  </section>
+
+  <p class="note"><strong>Not a diagnosis, not medical advice.</strong> HealthLens is an educational prototype. Reference ranges are general adult values, the ML models learn from small public datasets, and the AI cannot see your full history. For chest pain, breathing trouble, confusion or fainting, seek emergency care.</p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
